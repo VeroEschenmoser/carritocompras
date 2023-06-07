@@ -6,15 +6,15 @@ import Listado from './componentes/Listado'
 interface item{
   nombre:string
   descripcion:string
-  precio:string
+  precio:number
 }
 function App() {
   
   const [produc, setProduc] = useState<Array<item>>([])
-
+  
   return (
     <>
-    <aside><Formulario product={produc} setproduc={setProduc}/></aside>
+    <aside><Formulario setproduc={setProduc}/></aside>
 
      <main><Listado product={produc}/></main> 
     </>

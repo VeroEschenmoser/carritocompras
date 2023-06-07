@@ -7,7 +7,7 @@ interface Props{
 interface item{
   nombre:string
   descripcion:string
-  precio:string
+  precio:number
 }
 const Listado = ({product}:Props) => {
 
@@ -20,7 +20,7 @@ const Listado = ({product}:Props) => {
     </div>
     <section className='cardprod'>
       {product.map((elemento)=>(
-        <CardProducto product={elemento}/>
+        <CardProducto key={elemento.nombre} product={elemento}/>
       ))}
       
 

@@ -2,7 +2,7 @@ interface Props{
   product:{
     nombre:string
   descripcion:string
-  precio:string
+  precio:number
   }
 
 }
