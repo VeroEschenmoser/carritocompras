@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react'
 interface Props{
   setproduc:React.Dispatch<React.SetStateAction<item[]>>
+  calcular:React.Dispatch<React.SetStateAction<number>>
 }
 interface item{
   nombre:string
   descripcion:string
   precio:number
 }
-const Formulario = ({setproduc}:Props) => {
+const Formulario = ({setproduc,calcular}:Props) => {
   /* const [producto, setProducto] = useState<item>()
 
   const [nombre, setNombre]= useState("")
@@ -24,6 +25,12 @@ const Formulario = ({setproduc}:Props) => {
     e.preventDefault();
     console.log(inputValues)
     setproduc(produc => ([...produc, inputValues]))
+    setInputValues({
+      nombre:"",
+      descripcion:"",
+      precio:0
+    })
+    calcular(1*inputValues.precio)
   }
   
   
@@ -40,7 +47,7 @@ function onChange (e:React.ChangeEvent<HTMLInputElement>){
       <label htmlFor="nombre"> Nombre del producto</label>
       <input type="text" id='descripcion' defaultValue={inputValues.descripcion} onChange={onChange}/>
       <label htmlFor=""> Descripcion (opcional)</label>
-      <input type="number" id='precio' defaultValue={inputValues.precio} onChange={onChange} required/>
+      <input type="number" id='precio' min={0} defaultValue={inputValues.precio} onChange={onChange} required/>
       <label htmlFor="">Precio</label>
       </div>
       
